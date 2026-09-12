@@ -137,6 +137,7 @@
     entitiesGrid.innerHTML = filtered.map(item => {
       const badgeClass = getBadgeClass(item.auditOpinion);
       const fin = item.financials || {};
+      const targetUrl = item.pageUrl || `dossiers/${item.slug || item.id}.html`;
 
       return `
         <article class="entity-card" data-id="${item.id}">
@@ -145,7 +146,11 @@
               <span><strong>${item.ticker}</strong> · ${item.exchange || 'EXCHANGE'}</span>
               <span>${item.fiscalYear || 'FY 2025'}</span>
             </div>
-            <h3 class="entity-name">${escapeHTML(item.name)}</h3>
+            <h3 class="entity-name">
+              <a href="${targetUrl}" style="color: inherit; text-decoration: none;" title="Open Dedicated Page for ${escapeHTML(item.name)}">
+                ${escapeHTML(item.name)}
+              </a>
+            </h3>
             <div class="entity-headline">“${escapeHTML(item.headline)}”</div>
             <div style="margin-top: 0.5rem;">
               <span class="audit-badge ${badgeClass}">${escapeHTML(item.auditOpinion)}</span>
@@ -193,9 +198,14 @@
           </div>
 
           <footer class="card-actions">
-            <button type="button" class="action-read" data-id="${item.id}">
-              Read Full Dossier &rarr;
-            </button>
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <a href="${targetUrl}" class="news-button" style="text-decoration: none; padding: 0.35rem 0.65rem; font-size: 0.72rem;">
+                Open Dedicated Page &rarr;
+              </a>
+              <button type="button" class="action-read" data-id="${item.id}" style="background:none; border:none; text-decoration:underline; font-size:0.72rem; cursor:pointer; color:var(--ink-secondary);">
+                Quick View
+              </button>
+            </div>
             <div>
               <button type="button" class="action-edit" data-id="${item.id}" style="margin-right: 0.75rem;">Edit</button>
               <button type="button" class="action-delete" data-id="${item.id}" style="color: var(--stamp-danger);">Delete</button>
@@ -494,8 +504,74 @@
     }
   }
 
+  // Download Markdown file for content/ directory
+  function downloadMarkdownPost() {
+    const name = document.getElementById('input-name').value.trim() || 'Corporate Entity';
+    const ticker = document.getElementById('input-ticker').value.trim().toUpperCase() || 'TICK';
+    const exchange = document.getElementById('input-exchange').value.trim() || 'NASDAQ';
+    const sector = document.getElementById('input-sector').value.trim() || 'General';
+    const dateline = document.getElementById('input-dateline').value.trim().toUpperCase() || 'NEW YORK';
+    const auditor = document.getElementById('input-auditor').value.trim() || 'Independent Auditor';
+    const auditOpinion = document.getElementById('input-opinion').value;
+    const fiscalYear = document.getElementById('input-fiscal-year').value.trim() || 'FY 2025';
+    const headline = document.getElementById('input-headline').value.trim() || 'Annual Audit Review';
+    const leadParagraph = document.getElementById('input-lead').value.trim();
+    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'entity';
+
+    const rev = document.getElementById('input-rev').value.trim() || 'N/A';
+    const net = document.getElementById('input-net-income').value.trim() || 'N/A';
+    const opMargin = document.getElementById('input-op-margin').value.trim() || 'N/A';
+    const fcf = document.getElementById('input-fcf').value.trim() || 'N/A';
+    const debt = document.getElementById('input-debt').value.trim() || 'N/A';
+    const currentRatio = document.getElementById('input-current-ratio').value.trim() || 'N/A';
+    const auditFocus = document.getElementById('input-audit-focus').value.trim() || '';
+    const fullNotes = document.getElementById('input-full-notes').value.trim() || '';
+    const conclusion = document.getElementById('input-auditor-conclusion').value.trim() || 
+      'In our opinion, the consolidated financial statements present fairly, in all material respects.';
+
+    const mdContent = `---
+name: "${name}"
+slug: ${slug}
+ticker: ${ticker}
+exchange: ${exchange}
+sector: "${sector}"
+dateline: "${dateline}"
+auditor: "${auditor}"
+auditOpinion: "${auditOpinion}"
+fiscalYear: "${fiscalYear}"
+headline: "${headline}"
+revenue: "${rev}"
+netIncome: "${net}"
+operatingMargin: "${opMargin}"
+freeCashFlow: "${fcf}"
+totalDebt: "${debt}"
+currentRatio: "${currentRatio}"
+auditFocus: "${auditFocus}"
+auditorConclusion: "${conclusion}"
+---
+
+${leadParagraph}
+
+${fullNotes}
+`;
+
+    const blob = new Blob([mdContent], { type: 'text/markdown;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `${slug}.md`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  }
+
   // Attach Event Listeners
   function attachEventListeners() {
+    const downloadMdBtn = document.getElementById('btn-download-md');
+    if (downloadMdBtn) {
+      downloadMdBtn.addEventListener('click', downloadMarkdownPost);
+    }
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value.toLowerCase().trim();
