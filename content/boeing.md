@@ -3,8 +3,11 @@ name: The Boeing Company
 slug: boeing
 ticker: BA
 exchange: NYSE
-sector: Aerospace & Defense
+sector: Industrials & Aerospace
 dateline: ARLINGTON, VA.
+date: September 10, 2026
+author: Vijay Vittal
+readingTime: 6 min read
 auditor: Deloitte & Touche LLP
 auditOpinion: Emphasis of Matter
 fiscalYear: FY 2025

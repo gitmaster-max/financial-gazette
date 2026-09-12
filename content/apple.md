@@ -3,8 +3,11 @@ name: Apple Inc.
 slug: apple
 ticker: AAPL
 exchange: NASDAQ
-sector: Technology Hardware & Services
+sector: Technology & Consumer Electronics
 dateline: CUPERTINO, CALIF.
+date: September 12, 2026
+author: Vijay Vittal
+readingTime: 6 min read
 auditor: Ernst & Young LLP
 auditOpinion: Unqualified / Clean
 fiscalYear: FY 2025
@@ -15,7 +18,7 @@ operatingMargin: 31.5%
 freeCashFlow: $108.81 Billion
 totalDebt: $106.63 Billion
 currentRatio: 0.99x
-auditFocus: Recognition and deferral of software upgrade rights on bundled iOS units, and valuation of multi-year cloud services vendor commitments.
+auditFocus: Recognition and deferral of software upgrade rights on bundled iOS units, and valuation of multi-year cloud vendor commitments.
 auditorConclusion: In our opinion, the consolidated financial statements present fairly, in all material respects, the financial position of Apple Inc. and subsidiaries as of September 27, 2025, in conformity with U.S. generally accepted accounting principles (GAAP).
 ---
 

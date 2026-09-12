@@ -3,8 +3,11 @@ name: Berkshire Hathaway Inc.
 slug: berkshire-hathaway
 ticker: BRK.A / BRK.B
 exchange: NYSE
-sector: Financial Conglomerate & Insurance
+sector: Financials & Insurance
 dateline: OMAHA, NEB.
+date: September 11, 2026
+author: Vijay Vittal
+readingTime: 5 min read
 auditor: Deloitte & Touche LLP
 auditOpinion: Unqualified / Clean
 fiscalYear: FY 2025

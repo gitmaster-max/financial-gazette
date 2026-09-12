@@ -3,8 +3,11 @@ name: Microsoft Corporation
 slug: microsoft
 ticker: MSFT
 exchange: NASDAQ
-sector: Cloud Infrastructure & Software
+sector: Cloud & Enterprise Software
 dateline: REDMOND, WASH.
+date: September 07, 2026
+author: Vijay Vittal
+readingTime: 6 min read
 auditor: Deloitte & Touche LLP
 auditOpinion: Unqualified / Clean
 fiscalYear: FY 2025

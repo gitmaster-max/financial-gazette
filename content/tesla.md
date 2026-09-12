@@ -5,6 +5,9 @@ ticker: TSLA
 exchange: NASDAQ
 sector: Automotive & Clean Energy
 dateline: AUSTIN, TEXAS
+date: September 09, 2026
+author: Vijay Vittal
+readingTime: 5 min read
 auditor: PricewaterhouseCoopers LLP
 auditOpinion: Unqualified / Clean
 fiscalYear: FY 2025

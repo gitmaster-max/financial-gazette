@@ -3,8 +3,11 @@ name: Novo Nordisk A/S
 slug: novo-nordisk
 ticker: NVO
 exchange: CPH / NYSE
-sector: Pharmaceuticals & Biotechnology
+sector: Healthcare & Pharmaceuticals
 dateline: BAGSVÆRD, DENMARK
+date: September 08, 2026
+author: Vijay Vittal
+readingTime: 5 min read
 auditor: PricewaterhouseCoopers Statsautoriseret
 auditOpinion: Unqualified / Clean
 fiscalYear: FY 2025
