@@ -2,6 +2,8 @@
 
 > *“Veritas in Numeris — All the Figures & Disclosures Fit to Print”*
 
+📰 **Live Publication**: [https://gitmaster-max.github.io/financial-gazette/](https://gitmaster-max.github.io/financial-gazette/)
+
 A clean, minimalist, text-only web publication designed in the timeless aesthetic of a classic broadsheet newspaper. **The Financial & Audit Chronicle** is dedicated to publishing detailed financial and audit dossiers for major corporate entities, examining 10-K filings, Key Audit Matters (CAM), balance sheet reserves, and independent auditor opinions.
 
 ---
